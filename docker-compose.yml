@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  builder:
+    image: me/builder
+    build:
+      dockerfile: Dockerfile.builder
+      context: .
+
+  test:
+    image: me/builder
+    command: npm run test
+
+  app:
+    build:
+      dockerfile: Dockerfile.app
+      context: .
